@@ -1,4 +1,6 @@
 import requests
+import csv
+import os
 from bs4 import BeautifulSoup
 
 url = "https://www.tfrrs.org/results/xc/21234/NCAA_Division_I_Cross_Country_Championships"
@@ -31,9 +33,17 @@ for p in body_list[3]:
     if score != "0":
         filtered_list.append([name, school, score])
     
+folder_path = r'C:\Users\ragon\OneDrive\Desktop\learning_python'
+csv_filename = 'filtered_list.csv'
+csv_file_path = os.path.join(folder_path, csv_filename)
 
-print(filtered_list)
+csv_filename = 'filtered_list.csv'
+with open(csv_filename,  'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['Name','School', 'Score'])
+    writer.writerows(filtered_list)
 
+print(f"CSV file '{csv_filename}' has been created.")
 
 
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, intial-scale">
+    <title>Flask Mail</title>
+</head>
+<body>
+    <p>Flask Mail</p>
+    <form>
+        <input id="my-input">
+        <button id="my-button" onclick="sendEmail()">Send email.</button>
+    </form>
+</body>
+
+<script>
+
+function sendEmail(){
+    var input = $('#my-input').val();
+    
+    axios.post('/sendemail?content='+input)
+    .then(response => {
+        // Handle the response data
+        alert('email has been sent');
+        var input = $('#my-input').val('');
+    })
+    .catch(error => {
+        // Handle the error
+        console.error('could not send email');
+    });
+
+
+    
+}
+
+</script>
+</html>
