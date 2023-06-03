@@ -9,7 +9,7 @@ def pali_check(string):
     if string2 == string:
         print("This is a Palinundrome")
     else:
-        print("nigger")
+        print("This is not a Palinundrome")
         
 
 pali_check("racecar")
