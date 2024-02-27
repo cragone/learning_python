@@ -3,8 +3,8 @@ import psycopg2
 
 host = "localhost"
 database = "FakeDisco"
-user = "postgres"
-password = "postgrespostgres"
+user = "TBD"
+password = "TBD"
 
 try:    
     conn = psycopg2.connect(host=host, database=database, user=user, password=password)
